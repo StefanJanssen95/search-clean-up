@@ -18,5 +18,12 @@ Currently the only way to use the extension is by downloading the source and use
 - Load unpacked
 - Select the folder of the cloned repo
 
-## Chromium based browsers
-Not tested yet, using the explanation of installing on MS Edge might help you in the right direction
+## Opera
+- Navigate to ``opera://extensions``
+- Enable _developer mode_ (top right corner)
+- Load unpacked
+- Select the folder of the cloned repo
+- Make sure to check _Allow access to search page results_ from the extension details page
+
+## Other Chromium based browsers
+Not tested yet, using the explanation of installing on MS Edge and Opera might help you in the right direction
