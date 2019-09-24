@@ -1,0 +1,8 @@
+.blocklist{
+	display: flex;
+	flex-direction: column;
+}
+
+.blocklist-item{
+	margin: 2px 0;
+}
