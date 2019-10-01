@@ -1,4 +1,3 @@
-
 (() => {
 	if (window.PLUGIN_searchCleanUp === undefined) {
 		window.PLUGIN_searchCleanUp = {};
@@ -6,8 +5,9 @@
 
 	console.log("ddg.js has loaded");
 	let blockList = [];
-	chrome.storage.local.get('blockList', (result) => { blockList = result.blockList; startLookingForMatches(); });
+	let test = Math.floor(Math.random() * 100);
 
+	chrome.storage.local.get('blockList', (result) => { blockList = result.blockList; startLookingForMatches(); });
 
 	function startLookingForMatches() {
 		const interval = window.setInterval(findMatches, 500);
@@ -32,6 +32,10 @@
 
 			console.log(blocked);
 
+			if (blocked + 1 > 0) {
+				chrome.runtime.sendMessage({count: test});
+			}
+
 			if (searchResults.length > 0) {
 				const loadMoreButton = document.querySelector('.result--more__btn');
 				loadMoreButton.addEventListener('click', startLookingForMatches);
@@ -39,5 +43,4 @@
 			}
 		}
 	}
-
 })();
