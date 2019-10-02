@@ -5,7 +5,6 @@
 
 	console.log("ddg.js has loaded");
 	let blockList = [];
-	let test = Math.floor(Math.random() * 100);
 
 	chrome.storage.local.get('blockList', (result) => { blockList = result.blockList; startLookingForMatches(); });
 
@@ -32,8 +31,8 @@
 
 			console.log(blocked);
 
-			if (blocked + 1 > 0) {
-				chrome.runtime.sendMessage({count: test});
+			if (blocked > 0) {
+				chrome.runtime.sendMessage({count: blocked});
 			}
 
 			if (searchResults.length > 0) {
