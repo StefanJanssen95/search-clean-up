@@ -1,0 +1,29 @@
+{
+    "name": "search-clean-up",
+    "version": "1.0.0",
+    "description": "Browser extension to remove search results from certain websites",
+    "main": "index.js",
+    "dependencies": {
+        "chrome-webstore-upload-cli": "^1.2.0",
+        "dot-json": "^1.1.0",
+        "web-ext": "^3.2.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch",
+        "deploy": "npm-run-all build update-version --parallel --continue-on-error release-amo",
+        "release-amo": "cd browser && web-ext build && web-ext sign",
+        "release-cws": "cd browser && webstore upload --auto-publish",
+        "update-version": "dot-json browser/manifest.json version $(date -u +%y.%-m.%-d.%-H%M)"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/StefanJanssen95/search-clean-up.git"
+    },
+    "license": "Unlicense",
+    "bugs": {
+        "url": "https://github.com/StefanJanssen95/search-clean-up/issues"
+    },
+    "homepage": "https://github.com/StefanJanssen95/search-clean-up#readme"
+}
