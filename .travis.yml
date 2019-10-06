@@ -11,4 +11,4 @@ deploy:
   skip_cleanup: true
   script: npm run deploy
   on:
-    branch: master
+    branch: feature/travis_test
