@@ -15,7 +15,6 @@
 		function findMatches() {
 			let blocked = 0;
 			const searchResults = document.querySelectorAll('.result');
-			const inactiveRules = [];
 			for (const result of searchResults) {
 				const link = result.querySelector('a');
 				if (link) {
