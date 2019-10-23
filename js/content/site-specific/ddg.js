@@ -15,22 +15,34 @@
 		function findMatches() {
 			let blocked = 0;
 			const searchResults = document.querySelectorAll('.result');
+			const inactiveRules = [];
 			for (const result of searchResults) {
 				const link = result.querySelector('a');
 				if (link) {
 					for (const blockRule of blockList) {
-						const regexp = new RegExp(blockRule);
-						const isMatch = regexp.test(link);
-						if (isMatch) {
-							result.classList.add('searchCleanUpFilter');
-							blocked++;
-							break;
+						if (blockRule.type) {
+							if (blockRule.type === 'regex') {
+								const regexp = new RegExp(blockRule);
+								const isMatch = regexp.test(link);
+								if (isMatch) {
+									result.classList.add('searchCleanUpFilter');
+									blocked++;
+									break;
+								}
+							} else if (blockRule.type === 'text') {
+								const isMatch = link.innerText.toLowerCase().includes(blockRule.value);
+								if (isMatch) {
+									result.classList.add('searchCleanUpFilter');
+									blocked++;
+									break;
+								}
+							}
 						}
 					}
 				}
 			}
 
-			console.log(blocked);
+			console.log('Blocked items:', blocked);
 
 			if (searchResults.length > 0) {
 				const loadMoreButton = document.querySelector('.result--more__btn');
