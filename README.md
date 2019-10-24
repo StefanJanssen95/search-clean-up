@@ -19,15 +19,15 @@ Currently the only way to use the extension is by downloading the source and use
 - Load unpacked
 - Select the folder of the cloned repo
 
-## Opera
-- Navigate to ``opera://extensions``
+## Chrome
+- Navigate to ``chrome://extensions``
 - Enable _developer mode_ (top right corner)
 - Load unpacked
 - Select the folder of the cloned repo
 - Make sure to check _Allow access to search page results_ from the extension details page
 
-## Chrome
-- same as Opera except you need to navigate to ``chrome://extensions``
+## Opera
+- same as chrome except you need to navigate to ``opera://extensions``
 
 ## Other Chromium based browsers
 Not tested yet, using the explanation of installing on MS Edge and Opera might help you in the right direction
