@@ -20,7 +20,7 @@
 				if (!link) {
 					break;
 				}
-				
+
 				for (const blockRule of blockList) {
 					if (!blockRule.type) {
 						break;
@@ -35,7 +35,7 @@
 							break;
 						}
 					} else if (blockRule.type === 'text') {
-						const isMatch = link.innerText.toLowerCase().includes(blockRule.value);
+						const isMatch = link.href.toLowerCase().includes(blockRule.value.toLowerCase());
 						if (isMatch) {
 							result.classList.add('searchCleanUpFilter');
 							blocked++;
