@@ -17,10 +17,25 @@
 			const searchResults = document.querySelectorAll('.result');
 			for (const result of searchResults) {
 				const link = result.querySelector('a');
-				if (link) {
-					for (const blockRule of blockList) {
+				if (!link) {
+					break;
+				}
+
+				for (const blockRule of blockList) {
+					if (!blockRule.type) {
+						break;
+					}
+
+					if (blockRule.type === 'regex') {
 						const regexp = new RegExp(blockRule);
 						const isMatch = regexp.test(link);
+						if (isMatch) {
+							result.classList.add('searchCleanUpFilter');
+							blocked++;
+							break;
+						}
+					} else if (blockRule.type === 'text') {
+						const isMatch = link.href.toLowerCase().includes(blockRule.value.toLowerCase());
 						if (isMatch) {
 							result.classList.add('searchCleanUpFilter');
 							blocked++;
@@ -30,7 +45,7 @@
 				}
 			}
 
-			console.log(blocked);
+			console.log('Blocked items:', blocked);
 
 			if (searchResults.length > 0) {
 				const loadMoreButton = document.querySelector('.result--more__btn');
