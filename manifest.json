@@ -1,32 +1,35 @@
 {
-    "manifest_version": 2,
-    "name": "Search Clean-Up",
-    "author": "StefanJanssen",
-    "version": "1.0",
-    "description": "Remove search results by target website",
-    "permissions": [
-      "*://duckduckgo.com/*",
-      "*://bing.com/*",
-      "tabs",
-      "storage"
-    ], 
-    "browser_action": {
-      "default_icon": {
-        "20": "img/cleanup20.png",
-        "40": "img/cleanup40.png"
-      },
-      "default_title": "Search Clean-Up",
-      "default_popup": "popup.html"
+  "manifest_version": 2,
+  "name": "Search Clean-Up",
+  "author": "StefanJanssen",
+  "version": "1.0",
+  "description": "Remove search results by target website",
+  "permissions": [
+    "*://duckduckgo.com/*",
+    "*://bing.com/*",
+    "tabs",
+    "storage"
+  ],
+  "background": {
+    "scripts": ["js/background/background.js"]
+  },
+  "browser_action": {
+    "default_icon": {
+      "20": "img/cleanup20.png",
+      "40": "img/cleanup40.png"
     },
-    "options_ui": {
-        "page": "options.html"
-    },
-    "content_scripts":[
-        {
-            "matches": ["*://duckduckgo.com/*"],
-            "css": ["css/clean-up.css"],
-            "js": ["js/content/generic.js", "js/content/site-specific/ddg.js"],
-            "run_at": "document_end"
-        }
-    ]
-  }
+    "default_title": "Search Clean-Up",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "content_scripts":[
+    {
+      "matches": ["*://duckduckgo.com/*"],
+      "css": ["css/clean-up.css"],
+      "js": ["js/content/generic.js", "js/content/site-specific/ddg.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
