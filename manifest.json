@@ -30,6 +30,12 @@
       "css": ["css/clean-up.css"],
       "js": ["js/content/generic.js", "js/content/site-specific/ddg.js"],
       "run_at": "document_end"
+    },
+    {
+      "matches": ["*://www.bing.com/*"],
+      "css": ["css/clean-up.css"],
+      "js": ["js/content/generic.js", "js/content/site-specific/bing.js"],
+      "run_at": "document_end"
     }
   ]
 }

@@ -1,6 +1,10 @@
 # search-clean-up
 Browser extension to remove search results from certain websites
 
+currently available search engines:
+- duckduckgo
+- bing
+
 Tested on:
 - MS Edge 78.0.276.2 (Chromium), should also work on other Chromium based browsers
 - Firefox 68.0.2
